@@ -1,9 +1,17 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
+    agent any 
     stages {
-        stage('build') {
+        stage('Stage 1') {
             steps {
-                sh 'mvn --version'
+                echo 'Stage 1 - Start' 
+                echo $HOME
+            }
+        }
+        stage('Stage 2') {
+            steps {
+                echo 'Stage 2 - Start' 
+                echo 'Listing $HOME Folder'
+                ls -l $HOME
             }
         }
     }
